@@ -12,7 +12,7 @@ var lamination = {
   laminations: ['без ламинирования', 'матовая 32', 'матовая 80', 'матовая 200', 'глянцевая 32', 'глянцевая 80', 'глянцевая 200', 'soft touch']
 };
 
-var a3Size = 312*440;
+
 
 angular.module('paper-config', [])
 .constant('paperConfig', { formats, types, a3Size, lamination});
