@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script src="./modules/paper.config.js"></script>
+    <script src="./modules/calculator.js"></script>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+</head>
+<body ng-app="calculator">
+    <div class="container" ng-controller="culcCtrl as ctrl">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3>Рассчет ориентировочной стоимости</h3>
+            </div>
+            <div class="panel-body">
+                <div class="form-group">
+                    <label>Формат печати:</label>
+                    <div class="radio" ng-repeat="format in ctrl.paperConfig.formats.print">
+                        <label>
+                            <input type="radio" ng-model="ctrl.selectedPrintFormat" value="{{format}}" ng-change="ctrl.price = 0">
+                            {{format}}
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Размер:</label>
+                    <select class="form-control" ng-model="ctrl.selectedPaperFormat" ng-change="ctrl.clientPaperWidth = 0; ctrl.clientPaperHeight = 0; ctrl.price = 0">
+                        <option ng-repeat="format in ctrl.paperConfig.formats.paper">{{format}}</option>
+                    </select>
+                </div>
+                <div class="form-group form-inline">
+                    <label>или произвольный:</label>
+                    <input type="number" class="form-control" ng-model="ctrl.clientPaperWidth" placeholder="Ш" max="312" min="100" ng-change="ctrl.selectedPaperFormat = ''; ctrl.price = 0">
+                    x
+                    <input type="number" class="form-control" placeholder="В" ng-model="ctrl.clientPaperHeight" max="440" min="100" ng-change="ctrl.selectedPaperFormat = ''; ctrl.price = 0">
+                    мм.
+                    Количество элементов к печати:
+                    <input type="number" class="form-control" ng-model="ctrl.clientItemsQuantity" min="0" ng-change="ctrl.selectedPaperFormat = ''; ctrl.price = 0">
+                </div>
+                <div class="form-group">
+                    <label>Бумага:</label>
+                    <select class="form-control" ng-if="ctrl.selectedPrintFormat === ctrl.paperConfig.formats.print[1]" ng-model="ctrl.selectedPaperType" ng-change="ctrl.price = 0">
+                        <option ng-repeat="type in ctrl.paperConfig.types.double">{{type}}</option>
+                    </select>
+                    <select class="form-control" ng-if="ctrl.selectedPrintFormat === ctrl.paperConfig.formats.print[0]" ng-model="ctrl.selectedPaperType" ng-change="ctrl.price = 0">
+                        <option ng-repeat="type in ctrl.paperConfig.types.single">{{type}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Количество листов:</label>
+                    <input type="number" min="1" class="form-control" ng-model="ctrl.count" ng-change="ctrl.price = 0">
+                </div>
+                <div class="form-group">
+                    <label>Ламинирование:</label>
+                    <select class="form-control" ng-model="ctrl.selectedLamination" ng-change="ctrl.price = 0">
+                        <option ng-repeat="laminat in ctrl.paperConfig.lamination.laminations">{{laminat}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Количество бигов:</label>
+                    <input type="number" min="0" class="form-control" ng-model="ctrl.bendingQuantity" ng-change="ctrl.price = 0">
+                </div>
+                <div class="col-xs-12">
+                    <button typ="button" class="btn btn-default btn-block" ng-click="ctrl.recalculate()">Рассчитать</button>
+                </div>
+            </div>
+            <div class="panel-footer" ng-if="ctrl.price">
+                <strong>Итоговая цена: {{ctrl.price}} руб.</strong>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
