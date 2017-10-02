@@ -11,7 +11,6 @@ angular.module("calculator", ['paper-config'])
   self.selectedPaperFormat = self.paperConfig.formats.paper[0];
   self.clientPaperWidth = 0;
   self.clientPaperHeight = 0;
-  self.clientItemsQuantity = 0;
   self.selectedPaperType = self.paperConfig.types.single[0];
   self.selectedLamination = self.paperConfig.lamination.laminations[0];
 
@@ -22,15 +21,15 @@ angular.module("calculator", ['paper-config'])
   function getInterpolationPrice(lowerPrice, higherPrice, lowerIndex, higherIndex, findingIndex) {
     return lowerPrice + ((findingIndex - lowerIndex)/(higherIndex - lowerIndex))*(higherPrice - lowerPrice);
   }
-  
-  function getCountByClientSize(height, width, itemsQuantity) {
-    var verticalHoldingCapacity = Math.floor(312/(height + 2)) * Math.floor(440/(width + 2));
-    var horizontalHoldingCapacity = Math.floor(440/(height + 2)) * Math.floor(312/(width + 2));
-    if(verticalHoldingCapacity > horizontalHoldingCapacity) {
-       return self.count = Math.ceil(self.paperConfig.a3Size / square);
+
+  function getCountByClientSize(height, width, count) {
+      var verticalHoldingCapacity = Math.floor(312/(height + 2)) * Math.floor(440/(width + 2));
+      var horizontalHoldingCapacity = Math.floor(440/(height + 2)) * Math.floor(312/(width + 2));
+      if(verticalHoldingCapacity > horizontalHoldingCapacity) {
+          return Math.ceil(count / verticalHoldingCapacity);
       } else {
-    return self.count = Math.floor(itemsQuantity / horizontalHoldingCapacity);
-  }
+          return Math.ceil(count / horizontalHoldingCapacity);
+      }
 }
   
   function getPriceByTypeSingleSide(count, type) {
@@ -418,7 +417,7 @@ angular.module("calculator", ['paper-config'])
   self.recalculate = function() {
     var fullPrice = 0;
     if(self.clientPaperHeight && self.clientPaperWidth) {
-      fullPrice = getFullPrice(getCountByClientSize(self.clientPaperHeight, self.clientPaperWidth, self.clientItemsQuantity), self.selectedPaperType, self.selectedPrintFormat, self.selectedLamination, self.bendingQuantity);
+      fullPrice = getFullPrice(getCountByClientSize(self.clientPaperHeight, self.clientPaperWidth, self.count), self.selectedPaperType, self.selectedPrintFormat, self.selectedLamination, self.bendingQuantity);
       return self.price = parseFloat(fullPrice.toFixed(2));
     } else {
       fullPrice = getFullPrice(self.count, self.selectedPaperType, self.selectedPrintFormat, self.selectedPaperFormat, self.selectedLamination, self.bendingQuantity);
