@@ -33,261 +33,303 @@ angular.module("calculator", ['paper-config'])
 }
   
   function getPriceByTypeSingleSide(count, type) {
-    if(count <= 50) {
+         if(count <= 25) {
+          switch(type) {
+              case self.paperConfig.types.single[0]:
+                  return count * getInterpolationPrice(2.10, 1.35, 1, 25, count);
+              case self.paperConfig.types.single[1]:
+                  return count * getInterpolationPrice(2.40, 1.54, 1, 25, count);
+              case self.paperConfig.types.single[2]:
+                  return count * getInterpolationPrice(2.40, 1.64, 1, 25, count);
+              case self.paperConfig.types.single[3]:
+                  return count * getInterpolationPrice(2.50, 1.70, 1, 25, count);
+              case self.paperConfig.types.single[4]:
+                  return count * getInterpolationPrice(2.60, 1.76, 1, 25, count);
+              case self.paperConfig.types.single[5]:
+                  return count * getInterpolationPrice(2.70, 1.88, 1, 25, count);
+              case self.paperConfig.types.single[6]:
+                  return count * getInterpolationPrice(3.90, 2.90, 1, 25, count);
+              case self.paperConfig.types.single[7]:
+                  return count * getInterpolationPrice(4.4, 3.45, 1, 25, count);
+              case self.paperConfig.types.single[8]:
+                  return count * getInterpolationPrice(2.65, 1.73, 1, 25, count);
+              case self.paperConfig.types.single[9]:
+                  return count * getInterpolationPrice(3.24, 2.16, 1, 25, count);
+          }
+      } else if(count <= 50) {
      switch(type) {
        case self.paperConfig.types.single[0]:
-         return count * getInterpolationPrice(2.10, 1.38, 1, 50, count);
+         return count * getInterpolationPrice(1.35, 1.12, 25, 50, count);
        case self.paperConfig.types.single[1]:
-         return count * getInterpolationPrice(2.40, 1.28, 1, 50, count);
+         return count * getInterpolationPrice(1.54, 1.28, 25, 50, count);
        case self.paperConfig.types.single[2]:
-         return count * getInterpolationPrice(2.40, 1.36, 1, 50, count);
+         return count * getInterpolationPrice(1.64, 1.36, 25, 50, count);
        case self.paperConfig.types.single[3]:
-         return count * getInterpolationPrice(2.50, 1.41, 1, 50, count);
+         return count * getInterpolationPrice(1.70, 1.41, 25, 50, count);
        case self.paperConfig.types.single[4]:
-         return count * getInterpolationPrice(2.60, 1.47, 1, 50, count);
+         return count * getInterpolationPrice(1.76, 1.47, 25, 50, count);
        case self.paperConfig.types.single[5]:
-         return count * getInterpolationPrice(2.70, 1.56, 1, 50, count);
+         return count * getInterpolationPrice(1.88, 1.56, 25, 50, count);
        case self.paperConfig.types.single[6]:
-         return count * getInterpolationPrice(3.90, 2.43, 1, 50, count);
+         return count * getInterpolationPrice(2.90, 2.43, 25, 50, count);
        case self.paperConfig.types.single[7]:
-         return count * getInterpolationPrice(4.4, 2.86, 1, 50, count);
+         return count * getInterpolationPrice(3.45, 2.86, 25, 50, count);
        case self.paperConfig.types.single[8]:
-         return count * getInterpolationPrice(2.65, 1.43, 1, 50, count);
+         return count * getInterpolationPrice(1.73, 1.43, 25, 50, count);
        case self.paperConfig.types.single[9]:
-         return count * getInterpolationPrice(3.24, 1.80, 1, 50, count);
+         return count * getInterpolationPrice(2.16, 1.80, 25, 50, count);
      }
     } else if(count <= 100) {
       switch(type) {
         case self.paperConfig.types.single[0]:
-          return count * getInterpolationPrice(2.10, 0.99, 1, 100, count);
+          return count * getInterpolationPrice(1.12, 0.99, 50, 100, count);
         case self.paperConfig.types.single[1]:
-          return count * getInterpolationPrice(2.40, 1.14, 1, 100, count);
+          return count * getInterpolationPrice(1.28, 1.14, 50, 100, count);
         case self.paperConfig.types.single[2]:
-          return count * getInterpolationPrice(2.40, 1.21, 1, 100, count);
+          return count * getInterpolationPrice(1.36, 1.21, 50, 100, count);
         case self.paperConfig.types.single[3]:
-          return count * getInterpolationPrice(2.50, 1.25, 1, 100, count);
+          return count * getInterpolationPrice(1.41, 1.25, 50, 100, count);
         case self.paperConfig.types.single[4]:
-          return count * getInterpolationPrice(2.60, 1.30, 1, 100, count);
+          return count * getInterpolationPrice(1.47, 1.30, 50, 100, count);
         case self.paperConfig.types.single[5]:
-          return count * getInterpolationPrice(2.70, 1.39, 1, 100, count);
+          return count * getInterpolationPrice(1.56, 1.39, 50, 100, count);
         case self.paperConfig.types.single[6]:
-          return count * getInterpolationPrice(3.90, 2.16, 1, 100, count);
+          return count * getInterpolationPrice(2.43, 2.16, 50, 100, count);
         case self.paperConfig.types.single[7]:
-          return count * getInterpolationPrice(4.4, 2.54, 1, 100, count);
+          return count * getInterpolationPrice(2.86, 2.54, 50, 100, count);
         case self.paperConfig.types.single[8]:
-          return count * getInterpolationPrice(2.65, 1.27, 1, 100, count);
+          return count * getInterpolationPrice(1.43, 1.27, 50, 100, count);
         case self.paperConfig.types.single[9]:
-          return count * getInterpolationPrice(3.24, 1.59, 1, 100, count);
+          return count * getInterpolationPrice(1.80, 1.59, 50, 100, count);
       }
     } else if(count <= 250) {
       switch(type) {
         case self.paperConfig.types.single[0]:
-          return count * getInterpolationPrice(2.10, 0.87, 1, 250, count);
+          return count * getInterpolationPrice(0.99, 0.87, 100, 250, count);
         case self.paperConfig.types.single[1]:
-          return count * getInterpolationPrice(2.40, 0.99, 1, 250, count);
+          return count * getInterpolationPrice(1.14, 0.99, 100, 250, count);
         case self.paperConfig.types.single[2]:
-          return count * getInterpolationPrice(2.40, 1.05, 1, 250, count);
+          return count * getInterpolationPrice(1.21, 1.05, 100, 250, count);
         case self.paperConfig.types.single[3]:
-          return count * getInterpolationPrice(2.50, 1.10, 1, 250, count);
+          return count * getInterpolationPrice(1.25, 1.10, 100, 250, count);
         case self.paperConfig.types.single[4]:
-          return count * getInterpolationPrice(2.60, 1.14, 1, 250, count);
+          return count * getInterpolationPrice(1.30, 1.14, 100, 250, count);
         case self.paperConfig.types.single[5]:
-          return count * getInterpolationPrice(2.70, 1.22, 1, 250, count);
+          return count * getInterpolationPrice(1.39, 1.22, 100, 250, count);
         case self.paperConfig.types.single[6]:
-          return count * getInterpolationPrice(3.90, 1.89, 1, 250, count);
+          return count * getInterpolationPrice(2.16, 1.89, 100, 250, count);
         case self.paperConfig.types.single[7]:
-          return count * getInterpolationPrice(4.4, 2.22, 1, 250, count);
+          return count * getInterpolationPrice(2.54, 2.22, 100, 250, count);
         case self.paperConfig.types.single[8]:
-          return count * getInterpolationPrice(2.65, 1.12, 1, 250, count);
+          return count * getInterpolationPrice(1.27, 1.12, 100, 250, count);
         case self.paperConfig.types.single[9]:
-          return count * getInterpolationPrice(3.24, 1.39, 1, 250, count);
+          return count * getInterpolationPrice(1.59, 1.39, 100, 250, count);
       }
     } else if(count <= 500) {
       switch(type) {
         case self.paperConfig.types.single[0]:
-          return count * getInterpolationPrice(2.10, 0.58, 1, 500, count);
+          return count * getInterpolationPrice(0.87, 0.58, 250, 500, count);
         case self.paperConfig.types.single[1]:
-          return count * getInterpolationPrice(2.40, 0.66, 1, 500, count);
+          return count * getInterpolationPrice(0.99, 0.66, 250, 500, count);
         case self.paperConfig.types.single[2]:
-          return count * getInterpolationPrice(2.40, 0.70, 1, 500, count);
+          return count * getInterpolationPrice(1.05, 0.70, 250, 500, count);
         case self.paperConfig.types.single[3]:
-          return count * getInterpolationPrice(2.50, 0.73, 1, 500, count);
+          return count * getInterpolationPrice(1.10, 0.73, 250, 500, count);
         case self.paperConfig.types.single[4]:
-          return count * getInterpolationPrice(2.60, 0.76, 1, 500, count);
+          return count * getInterpolationPrice(1.14, 0.76, 250, 500, count);
         case self.paperConfig.types.single[5]:
-          return count * getInterpolationPrice(2.70, 0.81, 1, 500, count);
+          return count * getInterpolationPrice(1.22, 0.81, 250, 500, count);
         case self.paperConfig.types.single[6]:
-          return count * getInterpolationPrice(3.90, 1.26, 1, 500, count);
+          return count * getInterpolationPrice(1.89, 1.26, 250, 500, count);
         case self.paperConfig.types.single[7]:
-          return count * getInterpolationPrice(4.4, 1.48, 1, 500, count);
+          return count * getInterpolationPrice(2.22, 1.48, 250, 500, count);
         case self.paperConfig.types.single[8]:
-          return count * getInterpolationPrice(2.65, 7.46, 1, 500, count);
+          return count * getInterpolationPrice(1.12, 1.46, 250, 500, count);
         case self.paperConfig.types.single[9]:
-          return count * getInterpolationPrice(3.24, 0.93, 1, 500, count);
+          return count * getInterpolationPrice(1.39, 0.93, 250, 500, count);
       }
     } else if(count <= 1000) {
       switch(type) {
         case self.paperConfig.types.single[0]:
-          return count * getInterpolationPrice(2.10, 0.54, 1, 1000, count);
+          return count * getInterpolationPrice(0.58, 0.54, 500, 1000, count);
         case self.paperConfig.types.single[1]:
-          return count * getInterpolationPrice(2.40, 0.62, 1, 1000, count);
+          return count * getInterpolationPrice(0.66, 0.62, 500, 1000, count);
         case self.paperConfig.types.single[2]:
-          return count * getInterpolationPrice(2.40, 0.66, 1, 1000, count);
+          return count * getInterpolationPrice(0.70, 0.66, 500, 1000, count);
         case self.paperConfig.types.single[3]:
-          return count * getInterpolationPrice(2.50, 0.68, 1, 1000, count);
+          return count * getInterpolationPrice(0.73, 0.68, 500, 1000, count);
         case self.paperConfig.types.single[4]:
-          return count * getInterpolationPrice(2.60, 0.71, 1, 1000, count);
+          return count * getInterpolationPrice(0.76, 0.71, 500, 1000, count);
         case self.paperConfig.types.single[5]:
-          return count * getInterpolationPrice(2.70, 0.81, 1, 1000, count);
+          return count * getInterpolationPrice(0.81, 0.81, 500, 1000, count);
         case self.paperConfig.types.single[6]:
-          return count * getInterpolationPrice(3.90, 1.18, 1, 1000, count);
+          return count * getInterpolationPrice(1.26, 1.18, 500, 1000, count);
         case self.paperConfig.types.single[7]:
-          return count * getInterpolationPrice(4.4, 1.39, 1, 1000, count);
+          return count * getInterpolationPrice(1.48, 1.39, 500, 1000, count);
         case self.paperConfig.types.single[8]:
-          return count * getInterpolationPrice(2.65, 7.01, 1, 1000, count);
+          return count * getInterpolationPrice(1.46, 1.01, 500, 1000, count);
         case self.paperConfig.types.single[9]:
-          return count * getInterpolationPrice(3.24, 0.87, 1, 1000, count);
+          return count * getInterpolationPrice(0.93, 0.87, 500, 1000, count);
       }
     } else if(count > 1000) {
       switch(type) {
         case self.paperConfig.types.single[0]:
-          return count * getInterpolationPrice(2.10, 0.54, 1, count + 1, count);
+          return count * 0.54;
         case self.paperConfig.types.single[1]:
-          return count * getInterpolationPrice(2.40, 0.62, 1, count + 1, count);
+          return count * 0.62;
         case self.paperConfig.types.single[2]:
-          return count * getInterpolationPrice(2.40, 0.66, 1, count + 1, count);
+          return count * 0.66;
         case self.paperConfig.types.single[3]:
-          return count * getInterpolationPrice(2.50, 0.68, 1, count + 1, count);
+          return count * 0.68;
         case self.paperConfig.types.single[4]:
-          return count * getInterpolationPrice(2.60, 0.71, 1, count + 1, count);
+          return count * 0.71;
         case self.paperConfig.types.single[5]:
-          return count * getInterpolationPrice(2.70, 0.81, 1, count + 1, count);
+          return count * 0.81;
         case self.paperConfig.types.single[6]:
-          return count * getInterpolationPrice(3.90, 1.18, 1, count + 1, count);
+          return count * 1.18;
         case self.paperConfig.types.single[7]:
-          return count * getInterpolationPrice(4.4, 1.39, 1, count + 1, count);
+          return count * 1.39;
         case self.paperConfig.types.single[8]:
-          return count * getInterpolationPrice(2.65, 7.01, 1, count + 1, count);
+          return count * 1.01;
         case self.paperConfig.types.single[9]:
-          return count * getInterpolationPrice(3.24, 0.87, 1, count + 1, count);
+          return count * 0.87;
       }
     }
   }
   
   function getPriceByTypeDoubleSide(count, type) {
-    if(count <= 50) {
+   if(count <= 25) {
+          switch(type) {
+              case self.paperConfig.types.double[0]:
+                  return count * getInterpolationPrice(2.70, 1.66, 1, 25, count);
+              case self.paperConfig.types.double[1]:
+                  return count * getInterpolationPrice(3.10, 1.95, 1, 25, count);
+              case self.paperConfig.types.double[2]:
+                  return count * getInterpolationPrice(3.20, 2.01, 1, 25, count);
+              case self.paperConfig.types.double[3]:
+                  return count * getInterpolationPrice(3.30, 2.04, 1, 25, count);
+              case self.paperConfig.types.double[4]:
+                  return count * getInterpolationPrice(3.40, 2.13, 1, 25, count);
+              case self.paperConfig.types.double[5]:
+                  return count * getInterpolationPrice(3.50, 2.22, 1, 25, count);
+              case self.paperConfig.types.double[6]:
+                  return count * getInterpolationPrice(4.90, 3.58, 1, 25, count);
+              case self.paperConfig.types.double[7]:
+                  return count * getInterpolationPrice(5.90, 3.86, 1, 25, count);
+          }
+      } else if(count <= 50) {
       switch(type) {
         case self.paperConfig.types.double[0]:
-          return count * getInterpolationPrice(2.70, 1.38, 1, 50, count);
+          return count * getInterpolationPrice(1.66, 1.38, 25, 50, count);
         case self.paperConfig.types.double[1]:
-          return count * getInterpolationPrice(3.10, 1.95, 1, 50, count);
+          return count * getInterpolationPrice(1.95, 1.62, 25, 50, count);
         case self.paperConfig.types.double[2]:
-          return count * getInterpolationPrice(3.20, 1.68, 1, 50, count);
+          return count * getInterpolationPrice(2.01, 1.68, 25, 50, count);
         case self.paperConfig.types.double[3]:
-          return count * getInterpolationPrice(3.30, 1.70, 1, 50, count);
+          return count * getInterpolationPrice(2.04, 1.70, 25, 50, count);
         case self.paperConfig.types.double[4]:
-          return count * getInterpolationPrice(3.40, 1.77, 1, 50, count);
+          return count * getInterpolationPrice(2.13, 1.77, 25, 50, count);
         case self.paperConfig.types.double[5]:
-          return count * getInterpolationPrice(3.50, 1.81, 1, 50, count);
+          return count * getInterpolationPrice(2.22, 1.81, 25, 50, count);
         case self.paperConfig.types.double[6]:
-          return count * getInterpolationPrice(4.90, 2.98, 1, 50, count);
+          return count * getInterpolationPrice(3.58, 2.98, 25, 50, count);
         case self.paperConfig.types.double[7]:
-          return count * getInterpolationPrice(5.90, 3.21, 1, 50, count);
+          return count * getInterpolationPrice(3.86, 3.21, 25, 50, count);
       }
     } else if(count <= 100) {
       switch(type) {
         case self.paperConfig.types.double[0]:
-          return count * getInterpolationPrice(2.70, 1.22, 1, 100, count);
+          return count * getInterpolationPrice(1.38, 1.22, 50, 100, count);
         case self.paperConfig.types.double[1]:
-          return count * getInterpolationPrice(3.10, 1.44, 1, 100, count);
+          return count * getInterpolationPrice(1.62, 1.44, 50, 100, count);
         case self.paperConfig.types.double[2]:
-          return count * getInterpolationPrice(3.20, 1.49, 1, 100, count);
+          return count * getInterpolationPrice(1.68, 1.49, 50, 100, count);
         case self.paperConfig.types.double[3]:
-          return count * getInterpolationPrice(3.30, 1.51, 1, 100, count);
+          return count * getInterpolationPrice(1.70, 1.51, 50, 100, count);
         case self.paperConfig.types.double[4]:
-          return count * getInterpolationPrice(3.40, 1.58, 1, 100, count);
+          return count * getInterpolationPrice(1.77, 1.58, 50, 100, count);
         case self.paperConfig.types.double[5]:
-          return count * getInterpolationPrice(3.50, 1.61, 1, 100, count);
+          return count * getInterpolationPrice(1.81, 1.61, 50, 100, count);
         case self.paperConfig.types.double[6]:
-          return count * getInterpolationPrice(4.90, 2.64, 1, 100, count);
+          return count * getInterpolationPrice(2.98, 2.64, 50, 100, count);
         case self.paperConfig.types.double[7]:
-          return count * getInterpolationPrice(5.90, 2.85, 1, 100, count);
+          return count * getInterpolationPrice(3.21, 2.85, 50, 100, count);
       }
     } else if(count <= 250) {
       switch(type) {
         case self.paperConfig.types.double[0]:
-          return count * getInterpolationPrice(2.70, 1.07, 1, 250, count);
+          return count * getInterpolationPrice(1.22, 1.07, 100, 250, count);
         case self.paperConfig.types.double[1]:
-          return count * getInterpolationPrice(3.10, 1.26, 1, 250, count);
+          return count * getInterpolationPrice(1.44, 1.26, 100, 250, count);
         case self.paperConfig.types.double[2]:
-          return count * getInterpolationPrice(3.20, 1.29, 1, 250, count);
+          return count * getInterpolationPrice(1.49, 1.29, 100, 250, count);
         case self.paperConfig.types.double[3]:
-          return count * getInterpolationPrice(3.30, 1.32, 1, 250, count);
+          return count * getInterpolationPrice(1.51, 1.32, 100, 250, count);
         case self.paperConfig.types.double[4]:
-          return count * getInterpolationPrice(3.40, 1.38, 1, 250, count);
+          return count * getInterpolationPrice(1.58, 1.38, 100, 250, count);
         case self.paperConfig.types.double[5]:
-          return count * getInterpolationPrice(3.50, 1.41, 1, 250, count);
+          return count * getInterpolationPrice(1.61, 1.41, 100, 250, count);
         case self.paperConfig.types.double[6]:
-          return count * getInterpolationPrice(4.90, 2.31, 1, 250, count);
+          return count * getInterpolationPrice(2.64, 2.31, 100, 250, count);
         case self.paperConfig.types.double[7]:
-          return count * getInterpolationPrice(5.90, 2.49, 1, 250, count);
+          return count * getInterpolationPrice(2.85, 2.49, 100, 250, count);
       }
     } else if(count <= 500) {
       switch(type) {
         case self.paperConfig.types.double[0]:
-          return count * getInterpolationPrice(2.70, 0.87, 1, 500, count);
+          return count * getInterpolationPrice(1.07, 0.87, 250, 500, count);
         case self.paperConfig.types.double[1]:
-          return count * getInterpolationPrice(3.10, 1.02, 1, 500, count);
+          return count * getInterpolationPrice(1.26, 1.02, 250, 500, count);
         case self.paperConfig.types.double[2]:
-          return count * getInterpolationPrice(3.20, 1.05, 1, 500, count);
+          return count * getInterpolationPrice(1.29, 1.05, 250, 500, count);
         case self.paperConfig.types.double[3]:
-          return count * getInterpolationPrice(3.30, 1.05, 1, 500, count);
+          return count * getInterpolationPrice(1.32, 1.05, 250, 500, count);
         case self.paperConfig.types.double[4]:
-          return count * getInterpolationPrice(3.40, 1.11, 1, 500, count);
+          return count * getInterpolationPrice(1.38, 1.11, 250, 500, count);
         case self.paperConfig.types.double[5]:
-          return count * getInterpolationPrice(3.50, 1.14, 1, 500, count);
+          return count * getInterpolationPrice(1.41, 1.14, 250, 500, count);
         case self.paperConfig.types.double[6]:
-          return count * getInterpolationPrice(4.90, 1.86, 1, 500, count);
+          return count * getInterpolationPrice(2.31, 1.86, 250, 500, count);
         case self.paperConfig.types.double[7]:
-          return count * getInterpolationPrice(5.90, 2.01, 1, 500, count);
+          return count * getInterpolationPrice(2.49, 2.01, 250, 500, count);
       }
     } else if(count <= 1000) {
       switch(type) {
         case self.paperConfig.types.double[0]:
-          return count * getInterpolationPrice(2.70, 0.85, 1, 1000, count);
+          return count * getInterpolationPrice(0.87, 0.85, 500, 1000, count);
         case self.paperConfig.types.double[1]:
-          return count * getInterpolationPrice(3.10, 0.99, 1, 1000, count);
+          return count * getInterpolationPrice(1.02, 0.99, 500, 1000, count);
         case self.paperConfig.types.double[2]:
-          return count * getInterpolationPrice(3.20, 1.02, 1, 1000, count);
+          return count * getInterpolationPrice(1.05, 1.02, 500, 1000, count);
         case self.paperConfig.types.double[3]:
-          return count * getInterpolationPrice(3.30, 1.02, 1, 1000, count);
+          return count * getInterpolationPrice(1.05, 1.02, 500, 1000, count);
         case self.paperConfig.types.double[4]:
-          return count * getInterpolationPrice(3.40, 1.08, 1, 1000, count);
+          return count * getInterpolationPrice(1.11, 1.08, 500, 1000, count);
         case self.paperConfig.types.double[5]:
-          return count * getInterpolationPrice(3.50, 1.11, 1, 1000, count);
+          return count * getInterpolationPrice(1.14, 1.11, 500, 1000, count);
         case self.paperConfig.types.double[6]:
-          return count * getInterpolationPrice(4.90, 1.80, 1, 1000, count);
+          return count * getInterpolationPrice(1.86, 1.80, 500, 1000, count);
         case self.paperConfig.types.double[7]:
-          return count * getInterpolationPrice(5.90, 1.95, 1, 1000, count);
+          return count * getInterpolationPrice(2.01, 1.95, 500, 1000, count);
       }
     } else if(count > 1000) {
       switch(type) {
         case self.paperConfig.types.double[0]:
-          return count * getInterpolationPrice(2.70, 0.85, 1, count + 1, count);
+          return count * 0.85;
         case self.paperConfig.types.double[1]:
-          return count * getInterpolationPrice(3.10, 0.99, 1, count + 1, count);
+          return count * 0.99;
         case self.paperConfig.types.double[2]:
-          return count * getInterpolationPrice(3.20, 1.02, 1, count + 1, count);
+          return count * 1.02;
         case self.paperConfig.types.double[3]:
-          return count * getInterpolationPrice(3.30, 1.02, 1, count + 1, count);
+          return count * 1.02;
         case self.paperConfig.types.double[4]:
-          return count * getInterpolationPrice(3.40, 1.08, 1, count + 1, count);
+          return count * 1.08;
         case self.paperConfig.types.double[5]:
-          return count * getInterpolationPrice(3.50, 1.11, 1, count + 1, count);
+          return count * 1.11;
         case self.paperConfig.types.double[6]:
-          return count * getInterpolationPrice(4.90, 1.80, 1, count + 1, count);
+          return count * 1.80;
         case self.paperConfig.types.double[7]:
-          return count * getInterpolationPrice(5.90, 1.95, 1, count + 1, count);
+          return count * 1.95;
       }
     }
   }
