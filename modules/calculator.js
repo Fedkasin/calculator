@@ -459,7 +459,8 @@ angular.module("calculator", ['paper-config'])
   self.recalculate = function() {
     var fullPrice = 0;
     if(self.clientPaperHeight && self.clientPaperWidth) {
-      fullPrice = getFullPrice(getCountByClientSize(self.clientPaperHeight, self.clientPaperWidth, self.count), self.selectedPaperType, self.selectedPrintFormat, self.selectedLamination, self.bendingQuantity);
+      var clientCount = getCountByClientSize(self.clientPaperHeight, self.clientPaperWidth, self.count);
+      fullPrice = getFullPrice(clientCount, self.selectedPaperType, self.selectedPrintFormat, self.paperConfig.formats.paper[0], self.selectedLamination, self.bendingQuantity);
       return self.price = parseFloat(fullPrice.toFixed(2));
     } else {
       fullPrice = getFullPrice(self.count, self.selectedPaperType, self.selectedPrintFormat, self.selectedPaperFormat, self.selectedLamination, self.bendingQuantity);

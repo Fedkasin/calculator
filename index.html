@@ -36,9 +36,9 @@
                 </div>
                 <div class="form-group form-inline">
                     <label>или произвольный:</label>
-                    <input type="number" class="form-control" ng-model="ctrl.clientPaperWidth" placeholder="Ш" max="312" min="100" ng-change="ctrl.selectedPaperFormat = ''; ctrl.price = 0">
+                    <input type="number" class="form-control" ng-model="ctrl.clientPaperWidth" placeholder="Ш" max="312" min="0" ng-change="ctrl.selectedPaperFormat = ''; ctrl.price = 0">
                     x
-                    <input type="number" class="form-control" placeholder="В" ng-model="ctrl.clientPaperHeight" max="440" min="100" ng-change="ctrl.selectedPaperFormat = ''; ctrl.price = 0">
+                    <input type="number" class="form-control" placeholder="В" ng-model="ctrl.clientPaperHeight" max="440" min="0" ng-change="ctrl.selectedPaperFormat = ''; ctrl.price = 0">
                     мм.
                 </div>
                 <div class="form-group">
@@ -51,7 +51,7 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <label>Количество листов:</label>
+                    <label>Количество изделий:</label>
                     <input type="number" min="1" class="form-control" ng-model="ctrl.count" ng-change="ctrl.price = 0">
                 </div>
                 <div class="form-group">
