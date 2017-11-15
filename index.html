@@ -20,49 +20,57 @@
             </div>
             <div class="panel-body">
                 <div class="form-group">
+                    <label>Выберите товар из списка:</label>
+                    <select class="form-control" ng-model="ctrl.selectedProduct.name">
+                        <option ng-repeat="(productKey, product) in ctrl.products">{{ product.name }}</option>
+                    </select>
+                </div>
+
+
+                <div class="form-group">
                     <label>Формат печати:</label>
                     <div class="radio" ng-repeat="format in ctrl.paperConfig.formats.print">
                         <label>
-                            <input type="radio" ng-model="ctrl.selectedPrintFormat" value="{{format}}" ng-change="ctrl.price = 0">
+                            <input type="radio" ng-model="ctrl.selectedPrintFormat" value="{{format}}">
                             {{format}}
                         </label>
                     </div>
                 </div>
                 <div class="form-group">
                     <label>Размер:</label>
-                    <select class="form-control" ng-model="ctrl.selectedPaperFormat" ng-change="ctrl.clientPaperWidth = 0; ctrl.clientPaperHeight = 0; ctrl.price = 0">
+                    <select class="form-control" ng-model="ctrl.selectedPaperFormat">
                         <option ng-repeat="format in ctrl.paperConfig.formats.paper">{{format}}</option>
                     </select>
                 </div>
                 <div class="form-group form-inline">
                     <label>или произвольный:</label>
-                    <input type="number" class="form-control" ng-model="ctrl.clientPaperWidth" placeholder="Ш" max="312" min="0" ng-change="ctrl.selectedPaperFormat = ''; ctrl.price = 0">
+                    <input type="number" class="form-control" ng-model="ctrl.clientPaperWidth" placeholder="Ш" max="312" min="0">
                     x
-                    <input type="number" class="form-control" placeholder="В" ng-model="ctrl.clientPaperHeight" max="440" min="0" ng-change="ctrl.selectedPaperFormat = ''; ctrl.price = 0">
+                    <input type="number" class="form-control" placeholder="В" ng-model="ctrl.clientPaperHeight" max="440" min="0">
                     мм.
                 </div>
                 <div class="form-group">
                     <label>Бумага:</label>
-                    <select class="form-control" ng-if="ctrl.selectedPrintFormat === ctrl.paperConfig.formats.print[1]" ng-model="ctrl.selectedPaperType" ng-change="ctrl.price = 0">
+                    <select class="form-control" ng-if="ctrl.selectedPrintFormat === ctrl.paperConfig.formats.print[1]" ng-model="ctrl.selectedPaperType">
                         <option ng-repeat="type in ctrl.paperConfig.types.double">{{type}}</option>
                     </select>
-                    <select class="form-control" ng-if="ctrl.selectedPrintFormat === ctrl.paperConfig.formats.print[0]" ng-model="ctrl.selectedPaperType" ng-change="ctrl.price = 0">
+                    <select class="form-control" ng-if="ctrl.selectedPrintFormat === ctrl.paperConfig.formats.print[0]" ng-model="ctrl.selectedPaperType">
                         <option ng-repeat="type in ctrl.paperConfig.types.single">{{type}}</option>
                     </select>
                 </div>
                 <div class="form-group">
                     <label>Количество изделий:</label>
-                    <input type="number" min="1" class="form-control" ng-model="ctrl.count" ng-change="ctrl.price = 0">
+                    <input type="number" min="1" class="form-control" ng-model="ctrl.count">
                 </div>
                 <div class="form-group">
                     <label>Ламинирование:</label>
-                    <select class="form-control" ng-model="ctrl.selectedLamination" ng-change="ctrl.price = 0">
+                    <select class="form-control" ng-model="ctrl.selectedLamination">
                         <option ng-repeat="laminat in ctrl.paperConfig.lamination.laminations">{{laminat}}</option>
                     </select>
                 </div>
                 <div class="form-group">
                     <label>Количество бигов:</label>
-                    <input type="number" min="0" class="form-control" ng-model="ctrl.bendingQuantity" ng-change="ctrl.price = 0">
+                    <input type="number" min="0" class="form-control" ng-model="ctrl.bendingQuantity">
                 </div>
                 <div class="col-xs-12">
                     <button typ="button" class="btn btn-default btn-block" ng-click="ctrl.recalculate()">Рассчитать</button>
