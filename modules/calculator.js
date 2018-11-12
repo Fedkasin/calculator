@@ -6,7 +6,9 @@ angular.module("calculator", ['paper-config'])
    * Initialize local constants
    */
   self.paperConfig = paperConfig;
-  
+  self.products = self.paperConfig.products;
+  self.selectedProduct = self.paperConfig.products.leaflets;
+
   self.selectedPrintFormat = self.paperConfig.formats.print[0];
   self.selectedPaperFormat = self.paperConfig.formats.paper[0];
   self.clientPaperWidth = 0;
